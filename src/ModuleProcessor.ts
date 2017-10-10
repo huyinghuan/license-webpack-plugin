@@ -50,7 +50,7 @@ class ModuleProcessor {
       .replace(path.join(this.context, FileUtils.MODULE_DIR) + path.sep, '')
       .split(path.sep);
 
-    return tokens[0].charAt(0) === '@'
+    return (tokens[0].charAt(0) === '@' || tokens[0].indexOf("_@") === 1)
       ? tokens.slice(0, 2).join('/')
       : tokens[0];
   }
